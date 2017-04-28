@@ -1,0 +1,92 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 50px;
+            padding-bottom: 20px;
+        }
+    </style>
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <form class="form-horizontal" >
+    <fieldset>
+
+    <!-- Form Name -->
+    <legend>Fahrtenbuch</legend>
+
+    <!-- Select Basic -->
+    <div class="control-group">
+      <label class="control-label" for="monat">Monat</label>
+      <div class="controls">
+        <select id="monat" name="monat" class="input-xlarge">
+          <option>Januar</option>
+          <option>Februar</option>
+          <option>März</option>
+          <option>April</option>
+          <option>Mai</option>
+          <option>Juni</option>
+          <option>Juli</option>
+          <option>August</option>
+          <option>September</option>
+          <option>Oktober</option>
+          <option>November</option>
+          <option>Dezember</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="control-group">
+      <label class="control-label" for="fahrzeug">KFZ-Kennzeichen</label>
+      <div class="controls">
+        <input id="fahrzeug" name="fahrzeug" placeholder="placeholder" class="input-xlarge" type="text">
+        
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="control-group">
+      <label class="control-label" for="kmanfang">km Anfang</label>
+      <div class="controls">
+        <input id="kmanfang" name="kmanfang" placeholder="km zu Beginn der ersten Fahrt" class="input-xlarge" required="" type="text">
+        <p class="help-block">Kilometerstand zu Beginn der ersten Fahrt im Monat</p>
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="control-group">
+      <label class="control-label" for="kmende">km Ende</label>
+      <div class="controls">
+        <input id="kmende" name="kmende" placeholder="km am Ende der letzten Fahrt" class="input-xlarge" required="" type="text">
+        <p class="help-block">Kilometerstand am Ende der letzten Fahrt im Monat</p>
+      </div>
+    </div>
+
+    <!-- Button -->
+    <div class="control-group">
+      <label class="control-label" for="commit"></label>
+      <div class="controls">
+        <button id="commit" name="commit" class="btn btn-primary">Abschicken</button>
+      </div>
+    </div>
+
+    </fieldset>
+    </form>
+  </div>
+
+</body>
+</html>
