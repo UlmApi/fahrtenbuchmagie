@@ -4,6 +4,7 @@ let navListItems = document.querySelectorAll(".setup-panel div a");
 let allWells = document.querySelectorAll(".setup-content");
 let allNextBtn = document.querySelectorAll(".nextBtn");
 let newCars = document.querySelectorAll(".newVhclBtn");
+let removeCarButton = document.querySelector(".removeVehicle");
 
 let numberOfCars = 1;
 
@@ -27,6 +28,12 @@ newCars.forEach(element => {
   element.addEventListener("click", e => {
     addCar(e.srcElement);
   });
+});
+
+removeCarButton.style.display = "none";
+
+removeCarButton.addEventListener("click", e => {
+  removeCar(e.srcElement);
 });
 
 function switchStep(e) {
@@ -106,4 +113,16 @@ function addCar(e) {
 
   let cars = e.parentElement.querySelectorAll(".car");
   cars[cars.length - 1].outerHTML += carHtml;
+
+  removeCarButton.style.display = "initial";
+}
+
+function removeCar(e) {
+  let cars = e.parentElement.querySelectorAll(".car");
+  cars[cars.length - 1].remove();
+  numberOfCars--;
+
+  if (numberOfCars < 2) {
+    removeCarButton.style.display = "none";
+  }
 }
