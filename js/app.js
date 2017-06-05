@@ -3,6 +3,9 @@
 let navListItems = document.querySelectorAll(".setup-panel div a");
 let allWells = document.querySelectorAll(".setup-content");
 let allNextBtn = document.querySelectorAll(".nextBtn");
+let newCars = document.querySelectorAll(".newVhclBtn");
+
+let numberOfCars = 1;
 
 allWells.forEach(element => {
   element.hidden = true;
@@ -20,7 +23,12 @@ allNextBtn.forEach(element => {
 
 allWells[0].hidden = false;
 
-// TODO: test
+newCars.forEach(element => {
+  element.addEventListener("click", e => {
+    addCar(e.srcElement);
+  });
+});
+
 function switchStep(e) {
   let target = e.attributes.href.value;
   let nextForm = document.querySelector(target);
@@ -69,4 +77,33 @@ function nextButton(e) {
     switchStep(document.querySelectorAll('a[href="' + nextStepWizard + '"]')[0]);
 
   }
+}
+
+function addCar(e) {
+  numberOfCars++;
+
+  let carHtml = `
+  <div class="car">
+    <h4>Fahrzeug ${numberOfCars}</h4>
+    <div class="form-group">
+      <label class="control-label">Kennzeichen</label>
+      <input maxlength="200" type="text" required="required" class="form-control" placeholder="Fahrzeugkennzeichen eingeben" />
+    </div>
+    <div class="form-group">
+      <label class="control-label">km-Stand Beginn</label>
+      <input maxlength="200" type="text" required="required" class="form-control" placeholder="Kilometerstand zu Monatsanfang" />
+    </div>
+    <div class="form-group">
+      <label class="control-label">km-Stand Ende</label>
+      <input maxlength="200" type="text" required="required" class="form-control" placeholder="Kilometerstand zu Monatsende" />
+    </div>
+    <div class="form-group">
+      <label class="control-label">Wagenpflege</label>
+      <input name="wagenpflege" value="wagenpflege" type="checkbox">durchgeführt
+    </div>
+  </div>
+  `;
+
+  let cars = e.parentElement.querySelectorAll(".car");
+  cars[cars.length - 1].outerHTML += carHtml;
 }
